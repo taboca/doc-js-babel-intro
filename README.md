@@ -43,15 +43,15 @@ Using npx will search for the executable, you can also do the following
 ./node_modules/babel-cli/bin/babel.js test.js 
 ```
 
-But this works because of you have defined a preset in a .babelrc:
+Which should do nothing and output: 
 
 ```
-{
-  "presets": ["env"]
-}
+import { foo } from './module-test';
+
+console.log(foo);
 ```
 
-And because you have installed 
+So you need to have the es2015 transpiler function installed whcih can be done installing the Babel extension entitled "babel-preset-env"
 
 ```
  npm install babel-preset-env --save-dev
@@ -63,14 +63,25 @@ Legacy note: priorly to this a developer had to install specific presets, such a
 
 [2] https://babeljs.io/docs/en/babel-preset-env
 
-Altenativelly, you could remove the .babelrc and pass the --presets env: 
+You can test now the transpilation: 
 
 ```
  npx babel test.js --presets env
 ```
 
- 
+And you can write less informing a Babel configuration as a hidden file: 
 
+But this works because of you have defined a preset in a .babelrc:
 
+```
+{
+  "presets": ["env"]
+}
+```
 
+And test with a shorter command: 
+
+```
+npx babel test.js --presets env
+```
 
