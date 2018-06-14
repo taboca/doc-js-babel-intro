@@ -85,3 +85,37 @@ And test with a shorter command:
 npx babel test.js --presets env
 ```
 
+With the output being: 
+
+```
+'use strict';
+
+var _moduleTest = require('./module-test');
+
+console.log(_moduleTest.foo);
+```
+
+## Learnings
+
+The notion of accessing a property, foo, from a module, is a basic need. In ES2015, the concept entitled *destructuring* refers to the ways you can access, or unpack, certain values or properties from objects: 
+
+```
+import { foo } from './module-test';
+
+```
+
+## Issue with this article
+
+It's not clear the different between the above and the following: 
+
+```
+import foo from './module-test';
+```
+
+See this https://stackoverflow.com/questions/33524696/es6-destructuring-and-module-imports?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
+
+
+## References
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
+
