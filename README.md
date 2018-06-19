@@ -1,12 +1,17 @@
- ## Using babel to run an es2015-based script test.js
+# This is part of the "Struggling with JavaScript" aka doc-js book
 
-Babel basic install with NodeJs. If you have npm, Node, and npx installed, you can then proceed: 
+* https://leanpub.com/doc-js
+* If you want to contribute to the book or join me as a coauthor pool, please get in contact mgalli at mgalli dot com subject "doc-js book"
 
-``` 
+## Using babel to run an es2015-based script test.js
+
+Babel basic install with NodeJs. If you have npm, Node, and npx installed, you can then proceed:
+
+```
 npm init
 ```
 
-After initializing your project, let's install Babel and the command line project: 
+After initializing your project, let's install Babel and the command line project:
 
 ```
 npm install babel --save-dev
@@ -15,7 +20,7 @@ npm install babel-cli --save-dev
 
 ### Let's write your ES2015 script
 
-Module script: 
+Module script:
 
 ```
 export default {
@@ -23,7 +28,7 @@ export default {
 }
 ```
 
-Import script: 
+Import script:
 
 ```
 import { foo } from './module-test';
@@ -37,13 +42,13 @@ console.log(foo);
 npx babel test.js
 ```
 
-Using npx will search for the executable, you can also do the following 
+Using npx will search for the executable, you can also do the following
 
 ```
-./node_modules/babel-cli/bin/babel.js test.js 
+./node_modules/babel-cli/bin/babel.js test.js
 ```
 
-Which should do nothing and output: 
+Which should do nothing and output:
 
 ```
 import { foo } from './module-test';
@@ -57,19 +62,19 @@ So you need to have the es2015 transpiler function installed whcih can be done i
  npm install babel-preset-env --save-dev
 ```
 
-Legacy note: priorly to this a developer had to install specific presets, such as "babel-preset-es2015". From looking Babel site [1] it was deprecated and now you can simply get the [2] "babel-preset-env" instead. 
+Legacy note: priorly to this a developer had to install specific presets, such as "babel-preset-es2015". From looking Babel site [1] it was deprecated and now you can simply get the [2] "babel-preset-env" instead.
 
 [1] https://babeljs.io/docs/en/babel-preset-es2015/
 
 [2] https://babeljs.io/docs/en/babel-preset-env
 
-You can test now the transpilation: 
+You can test now the transpilation:
 
 ```
  npx babel test.js --presets env
 ```
 
-And you can write less informing a Babel configuration as a hidden file: 
+And you can write less informing a Babel configuration as a hidden file:
 
 But this works because of you have defined a preset in a .babelrc:
 
@@ -79,13 +84,13 @@ But this works because of you have defined a preset in a .babelrc:
 }
 ```
 
-And test with a shorter command: 
+And test with a shorter command:
 
 ```
 npx babel test.js --presets env
 ```
 
-With the output being: 
+With the output being:
 
 ```
 'use strict';
@@ -97,7 +102,7 @@ console.log(_moduleTest.foo);
 
 ## Learnings
 
-The notion of accessing a property, foo, from a module, is a basic need. In ES2015, the concept entitled *destructuring* refers to the ways you can access, or unpack, certain values or properties from objects: 
+The notion of accessing a property, foo, from a module, is a basic need. In ES2015, the concept entitled *destructuring* refers to the ways you can access, or unpack, certain values or properties from objects:
 
 ```
 import { foo } from './module-test';
@@ -106,7 +111,7 @@ import { foo } from './module-test';
 
 ## Issue with this article
 
-It's not clear the different between the above and the following: 
+It's not clear the different between the above and the following:
 
 ```
 import foo from './module-test';
@@ -118,4 +123,3 @@ See this https://stackoverflow.com/questions/33524696/es6-destructuring-and-modu
 ## References
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
-
